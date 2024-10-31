@@ -375,11 +375,24 @@
                         <span>Lock Screen</span>
                     </a>
 
-                    <!-- item-->
-                    <a href="auth-logout.html" class="dropdown-item">
+                    <!-- Logout -->
+                    
+                    <a href="{{route('adminlogout')}}" class="dropdown-item">
                         <i class="ri-logout-circle-r-line align-middle me-1"></i>
                         <span>Logout</span>
                     </a>
+                    
+
+
+
+                    
+
+                    
+
+
+
+
+
                 </div>
             </li>
         </ul>

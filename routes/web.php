@@ -19,8 +19,22 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/',[FrontendController::class,'index']);
-Route::get('/admin/dashboard',[BackendController::class,'AdminDashboard'])->name('admindashboard')->middleware('auth');;
+
+
+//For Frontends pages
+Route::controller(FrontendController::class)->group(function () {
+    Route::get('/','index');
+});
+
+//For Backends pages
+Route::middleware(['auth'])->controller(BackendController::class)->group(function () {
+    Route::get('/admin/dashboard','AdminDashboard')->name('admindashboard');
+    Route::get('/admin/logout','AdminLogout')->name('adminlogout');
+    // Add other BackendController routes here
+});
+
+
+
 
 
 require __DIR__.'/auth.php';
