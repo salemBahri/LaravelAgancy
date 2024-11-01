@@ -33,6 +33,8 @@ Route::middleware(['auth'])->controller(BackendController::class)->group(functio
 
     // Educations
     Route::get('/add/education','AddEducation')->name('addeducation');
+    Route::post('/save/education','SaveEducation')->name('saveEducation');
+    Route::get('/educations','ShowEducation')->name('showeducation');
 
 
     // Experiences

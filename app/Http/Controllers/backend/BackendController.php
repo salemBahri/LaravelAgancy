@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Education;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -19,7 +20,56 @@ class BackendController extends Controller
 
     public function AddEducation(){
         return view('backend.addeducation');
-    }
+    } 
+    
+    
+    public function SaveEducation(Request $request){
+
+        Education::insert(
+            [
+                'user_id'=>Auth::user()->id,
+                'institution'=>$request->institution,
+                'degree'=>$request->degree,
+                'field_of_study'=>$request->field_of_study	,
+                'start_date'=>$request->start_date,
+                'end_date'=>$request->end_date,
+                'description'=>$request->description
+            ]
+            );
+            return redirect()->back(); 
+    }   
+    
+    
+    public function ShowEducation(){
+
+        $edus=Education::where('user_id',Auth::user()->id)->get();
+        return view('backend.showeducations',compact('edus'));
+    } 
+    
+
+
+
+
+
+        
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     public function AddExperience(){
