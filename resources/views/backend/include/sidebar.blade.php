@@ -45,7 +45,7 @@
                         <div class="collapse" id="sidebarEducations">
                             <ul class="side-nav-second-level">
                                 <li class="side-nav-item">
-                                    <a class="side-nav-link" href="#">Add Education</a>
+                                    <a class="side-nav-link" href="{{route('addeducation')}}">Add Education</a>
                                 </li>
                                 <li class="side-nav-item">
                                     <a class="side-nav-link" href="#">Educations List</a>
@@ -69,7 +69,7 @@
                         <div class="collapse" id="sidebarExperiences">
                             <ul class="side-nav-second-level">
                                 <li class="side-nav-item">
-                                    <a class="side-nav-link" href="#">Add Experience</a>
+                                    <a class="side-nav-link" href="{{route('addexperience')}}">Add Experience</a>
                                 </li>
                                 <li class="side-nav-item">
                                     <a class="side-nav-link" href="#">Experiences List</a>
@@ -93,7 +93,7 @@
                         <div class="collapse" id="sidebarSkills">
                             <ul class="side-nav-second-level">
                                 <li class="side-nav-item">
-                                    <a class="side-nav-link" href="#">Add Skill</a>
+                                    <a class="side-nav-link" href="{{route('addskill')}}">Add Skill</a>
                                 </li>
                                 <li class="side-nav-item">
                                     <a class="side-nav-link" href="#">Skills List</a>
@@ -117,7 +117,7 @@
                         <div class="collapse" id="sidebarAwards">
                             <ul class="side-nav-second-level">
                                 <li class="side-nav-item">
-                                    <a class="side-nav-link" href="#">Add Award</a>
+                                    <a class="side-nav-link" href="{{route('addaward')}}">Add Award</a>
                                 </li>
                                 <li class="side-nav-item">
                                     <a class="side-nav-link" href="#">Awards List</a>
@@ -141,7 +141,7 @@
                         <div class="collapse" id="sidebarServices">
                             <ul class="side-nav-second-level">
                                 <li class="side-nav-item">
-                                    <a class="side-nav-link" href="#">Add Service</a>
+                                    <a class="side-nav-link" href="{{route('addservice')}}">Add Service</a>
                                 </li>
                                 <li class="side-nav-item">
                                     <a class="side-nav-link" href="#">Services List</a>
@@ -165,7 +165,7 @@
                         <div class="collapse" id="sidebarProjects">
                             <ul class="side-nav-second-level">
                                 <li class="side-nav-item">
-                                    <a class="side-nav-link" href="#">Add Project</a>
+                                    <a class="side-nav-link" href="{{route('addproject')}}">Add Project</a>
                                 </li>
                                 <li class="side-nav-item">
                                     <a class="side-nav-link" href="#">Projects List</a>
@@ -189,7 +189,7 @@
                         <div class="collapse" id="sidebarClients">
                             <ul class="side-nav-second-level">
                                 <li class="side-nav-item">
-                                    <a class="side-nav-link" href="#">Add Client</a>
+                                    <a class="side-nav-link" href="{{route('addclient')}}">Add Client</a>
                                 </li>
                                 <li class="side-nav-item">
                                     <a class="side-nav-link" href="#">Clients List</a>
@@ -237,7 +237,7 @@
                         <div class="collapse" id="sidebarProjectObjectives">
                             <ul class="side-nav-second-level">
                                 <li class="side-nav-item">
-                                    <a class="side-nav-link" href="#">Add</a>
+                                    <a class="side-nav-link" href="{{route('addobjective')}}">Add</a>
                                 </li>
                                 <li class="side-nav-item">
                                     <a class="side-nav-link" href="#">List</a>
@@ -261,11 +261,29 @@
                         <div class="collapse" id="sidebarSettings">
                             <ul class="side-nav-second-level">
                                 <li class="side-nav-item">
-                                    <a class="side-nav-link" href="#">Edit Settings</a>
+                                    <a class="side-nav-link" href="{{route('generalsettings')}}">General Settings</a>
+                                </li>
+                                <li class="side-nav-item">
+                                    <a class="side-nav-link" href="#">Contact</a>
                                 </li>
                             </ul>
                         </div>
                     </li>
+
+                    <!-- gfsdgffgdhgfhfghjfghfgh -->
+
+                    <li class="side-nav-item">
+                        <a data-bs-toggle="collapse" href="#" aria-expanded="false"
+                            aria-controls="changePassword" class="side-nav-link">
+                            <i class="ri-lock-line"></i>
+                            <span> Change Password </span>
+                            
+
+                        </a>
+                    </li>
+
+
+
 
                 </ul>
             </div>

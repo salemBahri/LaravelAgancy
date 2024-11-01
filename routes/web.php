@@ -30,7 +30,44 @@ Route::controller(FrontendController::class)->group(function () {
 Route::middleware(['auth'])->controller(BackendController::class)->group(function () {
     Route::get('/admin/dashboard','AdminDashboard')->name('admindashboard');
     Route::get('/admin/logout','AdminLogout')->name('adminlogout');
-    // Add other BackendController routes here
+
+    // Educations
+    Route::get('/add/education','AddEducation')->name('addeducation');
+
+
+    // Experiences
+    Route::get('/add/experience','AddExperience')->name('addexperience');
+
+    
+    // Skills
+    Route::get('/add/skill','AddSkill')->name('addskill');
+
+
+
+    // Awards
+    Route::get('/add/award','AddAward')->name('addaward');
+
+
+    // Services
+    Route::get('/add/service','AddService')->name('addservice');
+    
+    
+    // Clients
+    Route::get('/add/client','AddClient')->name('addclient');
+    
+    
+    // Projects
+    Route::get('/add/project','AddProject')->name('addproject');
+    
+    
+    // Project objectives
+    Route::get('/add/objective','AddObjective')->name('addobjective');
+
+
+
+    // General Settings
+    Route::get('/settings','GeneralSettings')->name('generalsettings');
+
 });
 
 

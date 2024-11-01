@@ -301,13 +301,13 @@
     <script src="{{asset('backend/assets/vendor/typeahead.js/typeahead.bundle.min.js')}}"></script>
 
     <!-- Flatpickr Timepicker Plugin js -->
-    <script src="{{asset('backend/assets/vendor/flatpickr/flatpickr.min.js')}}assets/vendor/flatpickr/flatpickr.min.js"></script>
+    <script src="{{asset('backend/assets/vendor/flatpickr/flatpickr.min.js')}}"></script>
 
     <!-- Typehead Demo js -->
-    <script src="{{asset('backend/assets/js/pages/typehead.init.js')}}assets/js/pages/typehead.init.js"></script>
+    <script src="{{asset('backend/assets/js/pages/typehead.init.js')}}"></script>
 
     <!-- Timepicker Demo js -->
-    <script src="{{asset('backend/assets/js/pages/timepicker.init.js')}}assets/js/pages/timepicker.init.js"></script>
+    <script src="{{asset('backend/assets/js/pages/timepicker.init.js')}}"></script>
 
     <!-- App js -->
     <script src="{{asset('backend/assets/js/app.min.js')}}"></script>
@@ -332,23 +332,14 @@
     <script src="{{asset('backend/assets/js/pages/icons-lucide.init.js')}}"></script>
         <!-- Plgins only -->
         <script src="{{asset('backend/assets/vendor/ion-rangeslider/js/ion.rangeSlider.min.js')}}"></script>
-        <script src="{{asset('backend/assetsf/js/pages/range-slider.init.js')}}"></script>
+        <script src="{{asset('backend/assets/js/pages/range-slider.init.js')}}"></script>
 
 
 
     <script>
 
 
-        function toggleEndDateEducation() {
-            let endDateInput = document.getElementById("endDateEducation");
-            let checkbox = document.getElementById("is_current_education");
-
-            if (checkbox.checked) {
-                endDateInput.disabled = true;
-            } else {
-                endDateInput.disabled = false;
-            }
-        }
+        
         function toggleEndDateExperience() {
             let endDateInput = document.getElementById("endDateExperience");
             let checkbox = document.getElementById("is_current_experience");

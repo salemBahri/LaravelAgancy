@@ -1,8 +1,8 @@
 @extends('backend.dashboard')
 @section('main')
 
-<h1>AddProject</h1>
 
 
+<h1>objectives</h1>
 
 @endsection
