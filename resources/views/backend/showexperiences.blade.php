@@ -8,10 +8,10 @@
 
 
         <div class="container-fluid card-header">
-            <h2 class="mb-5">Educations</h2>
-            <!-- Add Educations Button -->
+            <h2 class="mb-5">Award</h2>
+            <!-- Add Experience Button -->
             <div class="text-end mb-3">
-                <a href="{{ route('addeducation') }}" class="btn btn-success btn-lg">Add Education</a>
+                <a href="{{ route('addaward') }}" class="btn btn-success btn-lg">Add Experience</a>
             </div>
             
             <div class="card-body">
@@ -25,10 +25,10 @@
                                 <thead>
                                     <tr>
                                         <th class="sorting sorting_asc" tabindex="0" aria-controls="basic-datatable" rowspan="1" colspan="1" style="width: 262.8px;" aria-sort="ascending" aria-label="Name: activate to sort column descending">Id</th>
-                                        <th class="sorting" tabindex="0" aria-controls="basic-datatable" rowspan="1" colspan="1" style="width: 387.8px;" aria-label="Position: activate to sort column ascending">Institution Name</th>
-                                        <th class="sorting" tabindex="0" aria-controls="basic-datatable" rowspan="1" colspan="1" style="width: 197.8px;" aria-label="Office: activate to sort column ascending">Degree</th>
-                                        <th class="sorting" tabindex="0" aria-controls="basic-datatable" rowspan="1" colspan="1" style="width: 197.8px;" aria-label="New Column: activate to sort column ascending">Field Of Study</th>
-                                        <th class="sorting" tabindex="0" aria-controls="basic-datatable" rowspan="1" colspan="1" style="width: 94.8px;" aria-label="Age: activate to sort column ascending">Start Date</th>
+                                        <th class="sorting" tabindex="0" aria-controls="basic-datatable" rowspan="1" colspan="1" style="width: 387.8px;" aria-label="Position: activate to sort column ascending">Job Title</th>
+                                        <th class="sorting" tabindex="0" aria-controls="basic-datatable" rowspan="1" colspan="1" style="width: 197.8px;" aria-label="Office: activate to sort column ascending">Company Name</th>
+                                        <th class="sorting" tabindex="0" aria-controls="basic-datatable" rowspan="1" colspan="1" style="width: 197.8px;" aria-label="New Column: activate to sort column ascending">Location</th>
+                                        <th class="sorting" tabindex="0" aria-controls="basic-datatable" rowspan="1" colspan="1" style="width: 176.8px;" aria-label="Start date: activate to sort column ascending">Start Date</th>
                                         <th class="sorting" tabindex="0" aria-controls="basic-datatable" rowspan="1" colspan="1" style="width: 176.8px;" aria-label="Start date: activate to sort column ascending">End Date</th>
                                         <th class="sorting" tabindex="0" aria-controls="basic-datatable" rowspan="1" colspan="1" style="width: 146.8px; display: none;" aria-label="Salary: activate to sort column ascending">Action</th>
                                     </tr>
@@ -36,13 +36,14 @@
     
                                 <tbody>
                                     <tr class="odd">
-                                        @foreach ($edus as $kay => $edu)
+                                        @foreach ($exps as $kay => $exp)
                                         <td tabindex="0" class="sorting_1">{{$kay+1}}</td>
-                                        <td>{{$edu->institution}}</td>
-                                        <td>{{$edu->degree}}</td>
-                                        <td>{{$edu->field_of_study}}</td>
-                                        <td>{{$edu->start_date	}}</td>
-                                        <td>{{ $edu->end_date ? $edu->end_date : 'Present' }}</td>
+                                        <td>{{$exp->job_title}}</td>
+                                        <td>{{$exp->company_name}}</td>
+                                        <td>{{$exp->location}}</td>
+                                        
+                                        <td>{{$exp->start_date}}</td>
+                                        <td>{{ $exp->end_date ? $exp->end_date : 'Present' }}</td>
                                         
                                         <td>
                                             <div class="btn-group" role="group" aria-label="Basic example">

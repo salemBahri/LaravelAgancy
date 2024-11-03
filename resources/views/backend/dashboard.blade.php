@@ -52,6 +52,15 @@
         type="text/css" />
     <link href="{{asset('backend/assets/vendor/datatables.net-select-bs5/css/select.bootstrap5.min.css')}}" rel="stylesheet"
         type="text/css" />
+        <style>
+            .card-header {
+                padding: 18px 24px;
+                margin-bottom: 0; 
+                border-style: groove;
+                border-bottom: var(--#{$prefix}card-border-width) solid var(--#{$prefix}card-border-color);
+            }
+
+        </style>
 </head>
 
 <body>

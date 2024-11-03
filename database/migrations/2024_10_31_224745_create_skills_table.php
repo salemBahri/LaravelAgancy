@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id'); // Define user_id column as unsignedBigInteger
             $table->string('name');
-            $table->integer('proficiency'); // 10 - 100 or other scale
-            $table->integer('years_of_experience'); // Add years of experience column
+            $table->string('proficiency')->nullable(); // 10 - 100 or other scale
+            $table->integer('years_of_experience')->nullable(); // Add years of experience column
             $table->timestamps();
 
             // Manually add the foreign key constraint

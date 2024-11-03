@@ -8,12 +8,14 @@
 
 
         <div class="container-fluid card-header">
-            <h2 class="mb-5">Educations</h2>
-            <!-- Add Educations Button -->
+            <h2 class="mb-5">Services</h2>
+            <!-- Add Skill Button -->
             <div class="text-end mb-3">
-                <a href="{{ route('addeducation') }}" class="btn btn-success btn-lg">Add Education</a>
+                <a href="{{ route('addservice') }}" class="btn btn-success btn-lg"><i class="mdi mdi-plus me-1"></i> Add Service</a>
+                
             </div>
-            
+
+
             <div class="card-body">
                 <div id="basic-datatable_wrapper" class="dataTables_wrapper dt-bootstrap5 no-footer">
                     <div class="row">
@@ -25,25 +27,24 @@
                                 <thead>
                                     <tr>
                                         <th class="sorting sorting_asc" tabindex="0" aria-controls="basic-datatable" rowspan="1" colspan="1" style="width: 262.8px;" aria-sort="ascending" aria-label="Name: activate to sort column descending">Id</th>
-                                        <th class="sorting" tabindex="0" aria-controls="basic-datatable" rowspan="1" colspan="1" style="width: 387.8px;" aria-label="Position: activate to sort column ascending">Institution Name</th>
-                                        <th class="sorting" tabindex="0" aria-controls="basic-datatable" rowspan="1" colspan="1" style="width: 197.8px;" aria-label="Office: activate to sort column ascending">Degree</th>
-                                        <th class="sorting" tabindex="0" aria-controls="basic-datatable" rowspan="1" colspan="1" style="width: 197.8px;" aria-label="New Column: activate to sort column ascending">Field Of Study</th>
-                                        <th class="sorting" tabindex="0" aria-controls="basic-datatable" rowspan="1" colspan="1" style="width: 94.8px;" aria-label="Age: activate to sort column ascending">Start Date</th>
-                                        <th class="sorting" tabindex="0" aria-controls="basic-datatable" rowspan="1" colspan="1" style="width: 176.8px;" aria-label="Start date: activate to sort column ascending">End Date</th>
+                                        <th class="sorting" tabindex="0" aria-controls="basic-datatable" rowspan="1" colspan="1" style="width: 387.8px;" aria-label="Position: activate to sort column ascending">Service Name</th>
+                                        <th class="sorting" tabindex="0" aria-controls="basic-datatable" rowspan="1" colspan="1" style="width: 197.8px;" aria-label="New Column: activate to sort column ascending">Price</th>
+                                        <th class="sorting" tabindex="0" aria-controls="basic-datatable" rowspan="1" colspan="1" style="width: 176.8px;" aria-label="Start date: activate to sort column ascending">Duration</th>
+                                        <th class="sorting" tabindex="0" aria-controls="basic-datatable" rowspan="1" colspan="1" style="width: 176.8px;" aria-label="Start date: activate to sort column ascending">created_at	</th>
+                                        <th class="sorting" tabindex="0" aria-controls="basic-datatable" rowspan="1" colspan="1" style="width: 176.8px;" aria-label="Start date: activate to sort column ascending">updated_at	</th>
                                         <th class="sorting" tabindex="0" aria-controls="basic-datatable" rowspan="1" colspan="1" style="width: 146.8px; display: none;" aria-label="Salary: activate to sort column ascending">Action</th>
                                     </tr>
                                 </thead>
     
                                 <tbody>
                                     <tr class="odd">
-                                        @foreach ($edus as $kay => $edu)
+                                        @foreach ($servs as $kay => $serv)
                                         <td tabindex="0" class="sorting_1">{{$kay+1}}</td>
-                                        <td>{{$edu->institution}}</td>
-                                        <td>{{$edu->degree}}</td>
-                                        <td>{{$edu->field_of_study}}</td>
-                                        <td>{{$edu->start_date	}}</td>
-                                        <td>{{ $edu->end_date ? $edu->end_date : 'Present' }}</td>
-                                        
+                                        <td>{{$serv->title}}</td>
+                                        <td>{{$serv->price}}</td>
+                                        <td>{{$serv->duration}}</td>
+                                        <td>{{($serv->created_at)->format('d/m/Y')}}</td>
+                                        <td>{{($serv->updated_at)->format('d/m/Y')}}</td>
                                         <td>
                                             <div class="btn-group" role="group" aria-label="Basic example">
                                                 <button type="button" class="btn btn-primary"><i

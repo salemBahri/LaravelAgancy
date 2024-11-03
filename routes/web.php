@@ -39,23 +39,34 @@ Route::middleware(['auth'])->controller(BackendController::class)->group(functio
 
     // Experiences
     Route::get('/add/experience','AddExperience')->name('addexperience');
+    Route::post('/save/experience','SaveExperience')->name('saveExperience');
+    Route::get('/experiences','ShowExperience')->name('showexperience');
+    
 
     
     // Skills
     Route::get('/add/skill','AddSkill')->name('addskill');
+    Route::post('/save/skill','SaveSkill')->name('saveSkill');
+    Route::get('/skills','ShowSkill')->name('showskill');
 
 
 
     // Awards
     Route::get('/add/award','AddAward')->name('addaward');
+    Route::post('/save/award','SaveAward')->name('saveAward');
+    Route::get('/awards','ShowAward')->name('showaward');
 
 
     // Services
     Route::get('/add/service','AddService')->name('addservice');
+    Route::post('/save/service','SaveService')->name('saveService');
+    Route::get('/services','ShowService')->name('showservice');
     
     
     // Clients
     Route::get('/add/client','AddClient')->name('addclient');
+    Route::post('/save/client','SaveClient')->name('saveClient');
+    Route::get('/clients','ShowClient')->name('showclient');
     
     
     // Projects
@@ -69,6 +80,7 @@ Route::middleware(['auth'])->controller(BackendController::class)->group(functio
 
     // General Settings
     Route::get('/settings','GeneralSettings')->name('generalsettings');
+    Route::post('/save/settings','SaveSettings')->name('savesettings');
 
 });
 

@@ -6,7 +6,7 @@
         <!-- ============================================================== -->
 
                 <!-- Start Content-->
-                <div class="container-fluid">
+                <div class="container-fluid card-header">
                     <div class="card-body">
                         <form class="needs-validation" method="POST" action="{{route('saveEducation')}}" novalidate>
                             @csrf
@@ -84,6 +84,13 @@
         <!-- ============================================================== -->
         <!-- End Page content -->
         <!-- ============================================================== -->
+
+
+
+
+
+
+
 
         <script>
         function toggleEndDateEducation() {

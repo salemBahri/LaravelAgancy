@@ -16,8 +16,8 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id'); // Foreign key to users table
             $table->string('title'); // Title of the service
             $table->text('description')->nullable(); // Optional description of the service
-            $table->decimal('price', 8, 2)->nullable(); // Price of the service two numbers after comma ,
-            $table->integer('duration')->nullable(); // Duration of the service in minutes
+            $table->string('price', 8, 2)->nullable(); // Price of the service two numbers after comma ,
+            $table->string('duration')->nullable(); // Duration of the service in minutes
             $table->string('image')->nullable(); // Optional image for the service
             $table->timestamps();
 

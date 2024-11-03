@@ -48,7 +48,7 @@
                                     <a class="side-nav-link" href="{{route('addeducation')}}">Add Education</a>
                                 </li>
                                 <li class="side-nav-item">
-                                    <a class="side-nav-link" href="#">Educations List</a>
+                                    <a class="side-nav-link" href="{{route('showeducation')}}">Educations List</a>
                                 </li>
                             </ul>
                         </div>
@@ -72,7 +72,7 @@
                                     <a class="side-nav-link" href="{{route('addexperience')}}">Add Experience</a>
                                 </li>
                                 <li class="side-nav-item">
-                                    <a class="side-nav-link" href="#">Experiences List</a>
+                                    <a class="side-nav-link" href="{{route('showexperience')}}">Experiences List</a>
                                 </li>
                             </ul>
                         </div>
@@ -96,7 +96,7 @@
                                     <a class="side-nav-link" href="{{route('addskill')}}">Add Skill</a>
                                 </li>
                                 <li class="side-nav-item">
-                                    <a class="side-nav-link" href="#">Skills List</a>
+                                    <a class="side-nav-link" href="{{route('showskill')}}">Skills List</a>
                                 </li>
                             </ul>
                         </div>
@@ -120,7 +120,7 @@
                                     <a class="side-nav-link" href="{{route('addaward')}}">Add Award</a>
                                 </li>
                                 <li class="side-nav-item">
-                                    <a class="side-nav-link" href="#">Awards List</a>
+                                    <a class="side-nav-link" href="{{route('showaward')}}">Awards List</a>
                                 </li>
                             </ul>
                         </div>
@@ -144,7 +144,7 @@
                                     <a class="side-nav-link" href="{{route('addservice')}}">Add Service</a>
                                 </li>
                                 <li class="side-nav-item">
-                                    <a class="side-nav-link" href="#">Services List</a>
+                                    <a class="side-nav-link" href="{{route('showservice')}}">Services List</a>
                                 </li>
                             </ul>
                         </div>
@@ -192,7 +192,7 @@
                                     <a class="side-nav-link" href="{{route('addclient')}}">Add Client</a>
                                 </li>
                                 <li class="side-nav-item">
-                                    <a class="side-nav-link" href="#">Clients List</a>
+                                    <a class="side-nav-link" href="{{route('showclient')}}">Clients List</a>
                                 </li>
                             </ul>
                         </div>
@@ -264,7 +264,7 @@
                                     <a class="side-nav-link" href="{{route('generalsettings')}}">General Settings</a>
                                 </li>
                                 <li class="side-nav-item">
-                                    <a class="side-nav-link" href="#">Contact</a>
+                                    <a class="side-nav-link" href="{{route('savesettings')}}">Contact</a>
                                 </li>
                             </ul>
                         </div>

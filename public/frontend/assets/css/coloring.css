@@ -96,13 +96,13 @@ h1.s2 .c1 span,
     background:var(--primary-color);
 }
 ::-moz-selection { /* Code for Firefox */
-    color:#ffffff;
-    background:var(--primary-color);
+    background:#ec212f73;
 }
 
 ::selection {
-    color:#ffffff;
-    background:var(--primary-color);
+   
+    background:#ec212f73;
+    
 }
 
 #back-to-top,
