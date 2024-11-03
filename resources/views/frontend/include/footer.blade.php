@@ -11,7 +11,12 @@
                             <li><a href="#">Instagram</a></li>
                         </ul>
 
-                        <p class="no-bottom">All Right Reserved<br>Template By Designesia</p>
+                        <p class="no-bottom">All Right Reserved<br>
+                            Template By 
+                            @foreach ($fronts as $front)
+                            {{$front->agency_name}}
+                            @endforeach
+                        </p>
 
                     </div>
                 </div>
