@@ -279,23 +279,129 @@ class BackendController extends Controller
         //return redirect()->back(); 
         return redirect()->route('showservice');
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
+
     public function SaveSettings(Request $request)
     {
+        // Validate the incoming request data
+        
 
-        Setting::insert(
-            [
-                'agency_name' => $request->agency_name,
-                'logo' => $request->logo,
-                'address' => $request->address,
-                'phone' => $request->phone,
-                'email' => $request->email,
-                'description' => $request->description,
-                'created_at' => now(), // Current date and time
-                'updated_at' => now(), // Current date and time
-            ]
-        );
-        return redirect()->back();
+        // Initialize image URL
+        $url = null;
+
+        // Handle the image upload
+        if ($request->hasFile('logo')) {
+            try {
+                $manager = new ImageManager(new Driver());
+                $img_name = hexdec(uniqid()) . '.' . $request->file('logo')->getClientOriginalExtension();
+                $img = $manager->read($request->file('logo'));
+                $img->resize(480, 480);
+                // Save image with 80 quality
+                $img->toJpeg(80)->save(base_path('public/upload/' . $img_name));
+                $url = 'upload/' . $img_name;
+            } catch (\Exception $e) {
+                // Handle image upload error
+                return redirect()->back()->with('error', 'Image processing failed: ' . $e->getMessage());
+            }
+        }
+
+        // Check if URL was generated
+        if ($url) {
+            try {
+                // Insert the award along with the image
+                Setting::insert([
+                    'agency_name' => $request->agency_name,
+                    'logo' => $url,
+                    'address' => $request->address,
+                    'phone' => $request->phone,
+                    'email' => $request->email,
+                    'description' => $request->description,
+                    'created_at' => now(), // Current date and time
+                    'updated_at' => now(), // Current date and time
+                ]);
+
+                return redirect()->route('showclient')->with('success', 'Award saved successfully!');
+            } catch (\Exception $e) {
+                // Handle database insertion error
+                return redirect()->back()->with('error', 'Database insertion failed: ' . $e->getMessage());
+            }
+        }
+
+        return redirect()->back()->with('error', 'Image upload failed!');
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
