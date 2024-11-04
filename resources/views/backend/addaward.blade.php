@@ -4,7 +4,7 @@
 
 <div class="container-fluid card-header">
     <div class="card-body">
-        <form class="needs-validation" method="POST" action="{{route('saveAward')}}" novalidate>
+        <form class="needs-validation" method="POST" action="{{route('saveAward')}}" enctype="multipart/form-data" novalidate>
             @csrf
             <div class="row">
                 <div class="col-lg-6">
@@ -21,7 +21,7 @@
 
                     <div class="mb-3">
                         <label for="awardDescription">Description</label>
-                        <textarea class="form-control" id="description" name="awardDescription" placeholder="Description of the award" maxlength="225" rows="3" required=""></textarea>
+                        <textarea class="form-control" id="description" name="description" placeholder="Description of the award" maxlength="225" rows="3" required=""></textarea>
                     </div>
                     
 
@@ -35,7 +35,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="awardFile">Certificate or Award Image</label>
-                        <input type="file" id="awardFile" name="image" class="form-control form-control-lg">
+                        <input type="file" id="awardFile" name="image" accept="image/*" class="form-control form-control-lg" required>
                     </div>
                 </div>
             </div>
@@ -54,5 +54,14 @@
         </form>
     </div>
 </div>
+@if ($errors->any())
+    <div>
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 
 @endsection

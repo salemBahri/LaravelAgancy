@@ -281,6 +281,14 @@
 
                         </a>
                     </li>
+                    
+                    <li class="side-nav-item">
+                        <a href="{{route('showgallery')}}" aria-expanded="false"
+                            aria-controls="changePassword" class="side-nav-link">
+                            <i class="ri-lock-line"></i>
+                            <span> Gallery </span>
+                        </a>
+                    </li>
 
 
 

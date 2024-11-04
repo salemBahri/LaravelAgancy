@@ -50,9 +50,7 @@
             <div class="mb-3">
                 <div class="form-check">
                     <input type="checkbox" class="form-check-input" id="invalidCheck" required="">
-                    <label class="form-check-label form-label" for="invalidCheck">Agree to
-                        terms
-                        and conditions</label>
+                    <label class="form-check-label form-label" for="invalidCheck">Agree to terms and conditions</label>
                     <div class="invalid-feedback">
                         You must agree before submitting.
                     </div>

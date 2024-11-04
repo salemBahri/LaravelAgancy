@@ -4,7 +4,7 @@
 
 <div class="container-fluid card-header">
     <div class="card-body">
-        <form class="needs-validation" method="POST" action="{{route('saveClient')}}" novalidate>
+        <form class="needs-validation" method="POST" action="{{route('saveClient')}}"  enctype="multipart/form-data" novalidate>
             @csrf
             <div class="row">
                 <div class="col-lg-6">
@@ -41,7 +41,7 @@
 
                     <div class="mb-3">
                         <label for="floatingInput">Company Logo</label>
-                        <input type="file" name="image" id="example-fileinput" class="form-control form-control-lg">
+                        <input type="file" name="image" id="example-fileinput" accept="image/*" class="form-control form-control-lg">
                     </div>
 
                 </div>

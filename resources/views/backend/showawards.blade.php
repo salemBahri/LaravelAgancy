@@ -30,6 +30,7 @@
                                         <th class="sorting" tabindex="0" aria-controls="basic-datatable" rowspan="1" colspan="1" style="width: 387.8px;" aria-label="Position: activate to sort column ascending">Award Title</th>
                                         <th class="sorting" tabindex="0" aria-controls="basic-datatable" rowspan="1" colspan="1" style="width: 197.8px;" aria-label="New Column: activate to sort column ascending">Organization</th>
                                         <th class="sorting" tabindex="0" aria-controls="basic-datatable" rowspan="1" colspan="1" style="width: 176.8px;" aria-label="Start date: activate to sort column ascending">Date Received</th>
+                                        <th class="sorting" tabindex="0" aria-controls="basic-datatable" rowspan="1" colspan="1" style="width: 176.8px;" aria-label="Start date: activate to sort column ascending">Image</th>
                                         <th class="sorting" tabindex="0" aria-controls="basic-datatable" rowspan="1" colspan="1" style="width: 176.8px;" aria-label="Start date: activate to sort column ascending">created_at	</th>
                                         <th class="sorting" tabindex="0" aria-controls="basic-datatable" rowspan="1" colspan="1" style="width: 176.8px;" aria-label="Start date: activate to sort column ascending">updated_at	</th>
                                         <th class="sorting" tabindex="0" aria-controls="basic-datatable" rowspan="1" colspan="1" style="width: 146.8px; display: none;" aria-label="Salary: activate to sort column ascending">Action</th>
@@ -43,6 +44,9 @@
                                         <td>{{$awd->title}}</td>
                                         <td>{{$awd->organization}}</td>
                                         <td>{{\Carbon\Carbon::parse($awd->date_received)->format('Y')}}</td>
+                                        <td>
+                                            <img class="avatar-md rounded-circle" src="{{$awd->image}}" alt="" srcset="">
+                                            </td>
                                         <td>{{($awd->created_at)->format('d/m/Y')}}</td>
                                         <td>{{($awd->updated_at)->format('d/m/Y')}}</td>
                                         <td>

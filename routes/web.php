@@ -82,7 +82,24 @@ Route::middleware(['auth'])->controller(BackendController::class)->group(functio
     Route::get('/settings','GeneralSettings')->name('generalsettings');
     Route::post('/save/settings','SaveSettings')->name('savesettings');
 
+
+
+        //images
+        Route::get('/image','TestImage')->name('testimage');
+        Route::post('/save/image','SaveImage')->name('saveimage');
+  
+
+
+        //gallery
+        Route::get('/gallery','ShowGallery')->name('showgallery');
+        
+
+        
+
 });
+
+
+
 
 
 

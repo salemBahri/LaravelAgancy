@@ -28,7 +28,7 @@
                                                                     <div class="text-center">
                                                                         <div class="mx-auto position-absolute z-3 start-50  translate-middle border border-5 border-white"
                                                                             style="top: 40%;">
-                                                                            <img src="{{asset('backend/assets/images/users/avatar-1.jpg')}}" alt=""
+                                                                            <img src="{{$client->image}}" alt=""
                                                                                 class="avatar-md img-fluid ">
                                                                         </div>
                                 
