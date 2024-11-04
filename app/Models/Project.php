@@ -9,4 +9,15 @@ class Project extends Model
 {
     use HasFactory;
     protected $guarded = [];
+
+
+
+    public function project_objectives()
+    {
+        return $this->hasMany(Project_objective::class);
+    }
+    public function project_images()
+    {
+        return $this->hasMany(Project_images::class);
+    }
 }
