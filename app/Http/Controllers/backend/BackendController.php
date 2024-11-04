@@ -146,23 +146,6 @@ class BackendController extends Controller
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     public function SaveClient(Request $request)
     {
         // Validate the incoming request data
@@ -214,53 +197,6 @@ class BackendController extends Controller
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     public function SaveService(Request $request)
     {
 
@@ -280,53 +216,6 @@ class BackendController extends Controller
         return redirect()->route('showservice');
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-   
 
     public function SaveSettings(Request $request)
     {
@@ -379,39 +268,6 @@ class BackendController extends Controller
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     public function ShowEducation()
     {
 
@@ -451,28 +307,6 @@ class BackendController extends Controller
         $servs = Service::where('user_id', Auth::user()->id)->get();
         return view('backend.showservices', compact('servs'));
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     public function AddExperience()
@@ -520,14 +354,6 @@ class BackendController extends Controller
     {
         return view('backend.generalsettings');
     }
-
-
-
-
-
-
-
-
 
 
     public function AdminLogout(Request $request)
