@@ -11,15 +11,15 @@
                     <h5 class="mb-3"></h5>
                     <div class="mb-3">
                         <label for="floatingInput">Fullname</label>
-                        <input type="text" id="example-input-large" name="fullname" class="form-control form-control-lg" placeholder="Fullname" required="">
+                        <input type="text" id="example-input-large" name="fullname" class="form-control form-control-lg" placeholder="Fullname" >
                     </div>
                     <div class="mb-3">
                         <label for="floatingInput">Phone</label>
-                        <input type="text" id="example-input-large" name="phone" class="form-control form-control-lg" placeholder="Phone" required="">
+                        <input type="text" id="example-input-large" name="phone" class="form-control form-control-lg" placeholder="Phone" >
                     </div>
                     <div class="mb-3">
                         <label for="floatingInput">Company Website</label>
-                        <input type="text" id="example-input-large" name="company_website" class="form-control form-control-lg" placeholder="Company Website" required="">
+                        <input type="text" id="example-input-large" name="company_website" class="form-control form-control-lg" placeholder="Company Website" >
                     </div>
 
                    
@@ -29,12 +29,18 @@
                     <h5 class="mb-3"></h5>
                     <div class="mb-3">
                         <label for="floatingInput">Email</label>
-                        <input type="text" id="example-input-large" name="email" class="form-control form-control-lg" placeholder="Email" required="">
+                        <input type="text" id="example-input-large" name="email" class="form-control form-control-lg" placeholder="Email" >
+                        <!-- Error message -->
+                            @error('email')
+                                <p class="btn btn-danger btn-sm" data-bs-toggle="popover" 
+                                data-bs-content="e.g : abc@abc.com" 
+                                data-bs-original-title="A valid email must be entered">Email Not Valid</p>
+                            @enderror
                     </div>
 
                     <div class="mb-3">
                         <label for="floatingInput">Company Name</label>
-                        <input type="text" id="example-input-large" name="company" class="form-control form-control-lg" placeholder="Company Name" required="">
+                        <input type="text" id="example-input-large" name="company" class="form-control form-control-lg" placeholder="Company Name" >
                     </div>
 
                     
@@ -48,7 +54,7 @@
             </div><br><br><br>
             <div class="mb-3">
                 <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="invalidCheck" required="">
+                    <input type="checkbox" class="form-check-input" id="invalidCheck" >
                     <label class="form-check-label form-label" for="invalidCheck">Agree to
                         terms
                         and conditions</label>

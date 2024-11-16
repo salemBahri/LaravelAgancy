@@ -29,6 +29,7 @@
                                         <th class="sorting sorting_asc" tabindex="0" aria-controls="basic-datatable" rowspan="1" colspan="1" style="width: 262.8px;" aria-sort="ascending" aria-label="Name: activate to sort column descending">Id</th>
                                         <th class="sorting" tabindex="0" aria-controls="basic-datatable" rowspan="1" colspan="1" style="width: 387.8px;" aria-label="Position: activate to sort column ascending">Service Name</th>
                                         <th class="sorting" tabindex="0" aria-controls="basic-datatable" rowspan="1" colspan="1" style="width: 197.8px;" aria-label="New Column: activate to sort column ascending">Price</th>
+                                        <th class="sorting" tabindex="0" aria-controls="basic-datatable" rowspan="1" colspan="1" style="width: 176.8px;" aria-label="Start date: activate to sort column ascending">Image</th>
                                         <th class="sorting" tabindex="0" aria-controls="basic-datatable" rowspan="1" colspan="1" style="width: 176.8px;" aria-label="Start date: activate to sort column ascending">Duration</th>
                                         <th class="sorting" tabindex="0" aria-controls="basic-datatable" rowspan="1" colspan="1" style="width: 176.8px;" aria-label="Start date: activate to sort column ascending">created_at	</th>
                                         <th class="sorting" tabindex="0" aria-controls="basic-datatable" rowspan="1" colspan="1" style="width: 176.8px;" aria-label="Start date: activate to sort column ascending">updated_at	</th>
@@ -42,6 +43,9 @@
                                         <td tabindex="0" class="sorting_1">{{$kay+1}}</td>
                                         <td>{{$serv->title}}</td>
                                         <td>{{$serv->price}}</td>
+                                        <td>
+                                            <img style="object-fit: cover;" class="avatar-md rounded-circle img-fluid" src="upload/{{$serv->image}}" alt="" srcset="">
+                                        </td>
                                         <td>{{$serv->duration}}</td>
                                         <td>{{($serv->created_at)->format('d/m/Y')}}</td>
                                         <td>{{($serv->updated_at)->format('d/m/Y')}}</td>

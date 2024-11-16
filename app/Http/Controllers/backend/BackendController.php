@@ -51,7 +51,7 @@ class BackendController extends Controller
                 'description' => $request->description
             ]
         );
-        return redirect()->back();
+        return redirect()->route('showeducation');
     }
 
     public function SaveExperience(Request $request)
@@ -69,7 +69,7 @@ class BackendController extends Controller
                 'description' => $request->description
             ]
         );
-        return redirect()->back();
+        return redirect()->route('showexperience');
     }
     public function SaveSkill(Request $request)
     {
@@ -90,6 +90,7 @@ class BackendController extends Controller
 
 
 
+
     public function SaveAward(Request $request)
     {
         // Validate the incoming request data
@@ -101,28 +102,13 @@ class BackendController extends Controller
             'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
-        // Initialize image URL
-        $url = null;
+        // معالجة الصورة وحفظها في مجلد upload
+    if ($request->hasFile('image')) {
+        $image = $request->file('image');
+        $imageName = time() . '_' . $image->getClientOriginalName();
+        $image->move(public_path('upload'), $imageName);
+    }
 
-        // Handle the image upload
-        if ($request->hasFile('image')) {
-            try {
-                $manager = new ImageManager(new Driver());
-                $img_name = hexdec(uniqid()) . '.' . $request->file('image')->getClientOriginalExtension();
-                $img = $manager->read($request->file('image'));
-                $img->resize(480, 480);
-                // Save image with 80 quality
-                $img->toJpeg(80)->save(base_path('public/upload/' . $img_name));
-                $url = 'upload/' . $img_name;
-            } catch (\Exception $e) {
-                // Handle image upload error
-                return redirect()->back()->with('error', 'Image processing failed: ' . $e->getMessage());
-            }
-        }
-
-        // Check if URL was generated
-        if ($url) {
-            try {
                 // Insert the award along with the image
                 Award::insert([
                     'user_id' => Auth::user()->id,
@@ -130,49 +116,34 @@ class BackendController extends Controller
                     'description' => $request->description,
                     'date_received' => $request->date_received,
                     'organization' => $request->organization,
-                    'image' => $url, // Save the image URL
+                    'image' => $imageName, // Save the image URL
                     'created_at' => now(), // Current date and time
                     'updated_at' => now(), // Current date and time
                 ]);
 
                 return redirect()->route('showaward')->with('success', 'Award saved successfully!');
-            } catch (\Exception $e) {
-                // Handle database insertion error
-                return redirect()->back()->with('error', 'Database insertion failed: ' . $e->getMessage());
-            }
+
         }
-
-        return redirect()->back()->with('error', 'Image upload failed!');
-    }
-
 
     public function SaveClient(Request $request)
     {
-        // Validate the incoming request data
-        
+       
+                // Validate the incoming request data
+                $request->validate([
+                    'fullname' => 'required|string|max:255',
+                    'email' => 'required|email',
+                    'phone' => 'required',
+                    'company' => 'required',
+                    'company_website' => 'required',
+                    'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+                ]);
 
-        // Initialize image URL
-        $url = null;
-
-        // Handle the image upload
-        if ($request->hasFile('image')) {
-            try {
-                $manager = new ImageManager(new Driver());
-                $img_name = hexdec(uniqid()) . '.' . $request->file('image')->getClientOriginalExtension();
-                $img = $manager->read($request->file('image'));
-                $img->resize(480, 480);
-                // Save image with 80 quality
-                $img->toJpeg(80)->save(base_path('public/upload/' . $img_name));
-                $url = 'upload/' . $img_name;
-            } catch (\Exception $e) {
-                // Handle image upload error
-                return redirect()->back()->with('error', 'Image processing failed: ' . $e->getMessage());
-            }
-        }
-
-        // Check if URL was generated
-        if ($url) {
-            try {
+                                // معالجة الصورة وحفظها في مجلد upload
+                if ($request->hasFile('image')) {
+                    $image = $request->file('image');
+                    $imageName = time() . '_' . $image->getClientOriginalName();
+                    $image->move(public_path('upload'), $imageName);
+                }
                 // Insert the award along with the image
                 Client::insert([
                     'user_id' => Auth::user()->id,
@@ -181,24 +152,48 @@ class BackendController extends Controller
                     'phone' => $request->phone,
                     'company' => $request->company,
                     'company_website' => $request->company_website,
-                    'image' => $url,
+                    'image' => $imageName,
                     'created_at' => now(), // Current date and time
                     'updated_at' => now(), // Current date and time
                 ]);
 
                 return redirect()->route('showclient')->with('success', 'Award saved successfully!');
-            } catch (\Exception $e) {
-                // Handle database insertion error
-                return redirect()->back()->with('error', 'Database insertion failed: ' . $e->getMessage());
-            }
+           
         }
 
-        return redirect()->back()->with('error', 'Image upload failed!');
-    }
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     public function SaveService(Request $request)
     {
+        // Validate the incoming request data
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'description' => 'required|string',
+            'price' => 'required',
+            'duration' => 'required',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
+
+                // معالجة الصورة وحفظها في مجلد upload
+    if ($request->hasFile('image')) {
+        $image = $request->file('image');
+        $imageName = time() . '_' . $image->getClientOriginalName();
+        $image->move(public_path('upload'), $imageName);
+    }
 
         Service::insert(
             [
@@ -207,14 +202,25 @@ class BackendController extends Controller
                 'description' => $request->description,
                 'price' => $request->price,
                 'duration' => $request->duration,
-                'image' => $request->image,
+                'image' => $imageName,
                 'created_at' => now(), // Current date and time
                 'updated_at' => now(), // Current date and time
             ]
         );
         //return redirect()->back(); 
-        return redirect()->route('showservice');
+        return redirect()->route('showservice')->with('success', 'Award saved successfully!');
     }
+
+
+
+
+
+
+
+
+
+
+
 
 
     public function SaveSettings(Request $request)

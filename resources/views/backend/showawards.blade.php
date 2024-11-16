@@ -45,7 +45,7 @@
                                         <td>{{$awd->organization}}</td>
                                         <td>{{\Carbon\Carbon::parse($awd->date_received)->format('Y')}}</td>
                                         <td>
-                                            <img class="avatar-md rounded-circle" src="{{$awd->image}}" alt="" srcset="">
+                                            <img style="object-fit: cover;" class="avatar-md rounded-circle" src="upload/{{$awd->image}}" alt="" srcset="">
                                             </td>
                                         <td>{{($awd->created_at)->format('d/m/Y')}}</td>
                                         <td>{{($awd->updated_at)->format('d/m/Y')}}</td>
