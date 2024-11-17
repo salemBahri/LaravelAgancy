@@ -35,7 +35,8 @@ Route::middleware(['auth'])->controller(BackendController::class)->group(functio
     Route::get('/add/education','AddEducation')->name('addeducation');
     Route::post('/save/education','SaveEducation')->name('saveEducation');
     Route::get('/educations','ShowEducation')->name('showeducation');
-    
+
+    Route::get('/delete/education/{id}','DeleteEducation')->name('deleteeducation');
 
 
     // Experiences
@@ -82,6 +83,8 @@ Route::middleware(['auth'])->controller(BackendController::class)->group(functio
     // General Settings
     Route::get('/settings','GeneralSettings')->name('generalsettings');
     Route::post('/save/settings','SaveSettings')->name('savesettings');
+    Route::get('/edit/settings','EditSettings')->name('editsettings');
+    Route::post('/update/settings','UpdateSettings')->name('updatesettings');
 
 
 

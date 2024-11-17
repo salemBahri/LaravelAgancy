@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('settings', function (Blueprint $table) {
             $table->id(); // Unique identifier for each setting entry
+            $table->unsignedBigInteger('user_id');
             $table->string('agency_name'); // Name of the agency
             $table->string('logo')->nullable(); // Logo URL or path (nullable)
             $table->string('address')->nullable(); // Address of the agency (nullable)
@@ -20,6 +21,7 @@ return new class extends Migration
             $table->string('email')->nullable(); // Contact email (nullable)
             $table->text('description')->nullable(); // Description or mission statement (nullable)
             $table->timestamps(); // Created at and updated at timestamps
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');  // Cascade delete on user
         });
     }
 

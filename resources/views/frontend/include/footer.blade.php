@@ -12,10 +12,7 @@
                         </ul>
 
                         <p class="no-bottom">All Right Reserved<br>
-                            Template By 
-                            @foreach ($fronts as $front)
-                            {{$front->agency_name}}
-                            @endforeach
+                            Template By {{$front->agency_name}} 
                         </p>
 
                     </div>

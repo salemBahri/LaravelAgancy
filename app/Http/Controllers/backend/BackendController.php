@@ -54,6 +54,15 @@ class BackendController extends Controller
         return redirect()->route('showeducation');
     }
 
+    public function deleteeducation($id){
+        Education::findOrFail($id)->delete();
+        return redirect()->route('showeducation');
+
+    }
+
+
+    
+
     public function SaveExperience(Request $request)
     {
 
@@ -225,35 +234,15 @@ class BackendController extends Controller
 
     public function SaveSettings(Request $request)
     {
-        // Validate the incoming request data
-        
-
-        // Initialize image URL
-        $url = null;
-
-        // Handle the image upload
         if ($request->hasFile('logo')) {
-            try {
-                $manager = new ImageManager(new Driver());
-                $img_name = hexdec(uniqid()) . '.' . $request->file('logo')->getClientOriginalExtension();
-                $img = $manager->read($request->file('logo'));
-                $img->resize(480, 480);
-                // Save image with 80 quality
-                $img->toJpeg(80)->save(base_path('public/upload/' . $img_name));
-                $url = 'upload/' . $img_name;
-            } catch (\Exception $e) {
-                // Handle image upload error
-                return redirect()->back()->with('error', 'Image processing failed: ' . $e->getMessage());
-            }
+            $image = $request->file('logo');
+            $logo = time() . '_' . $image->getClientOriginalName();
+            $image->move(public_path('upload'), $logo);
         }
-
-        // Check if URL was generated
-        if ($url) {
-            try {
-                // Insert the award along with the image
                 Setting::insert([
+                    'user_id' => Auth::user()->id,
                     'agency_name' => $request->agency_name,
-                    'logo' => $url,
+                    'logo' => $logo,
                     'address' => $request->address,
                     'phone' => $request->phone,
                     'email' => $request->email,
@@ -262,15 +251,87 @@ class BackendController extends Controller
                     'updated_at' => now(), // Current date and time
                 ]);
 
-                return redirect()->route('showclient')->with('success', 'Award saved successfully!');
-            } catch (\Exception $e) {
-                // Handle database insertion error
-                return redirect()->back()->with('error', 'Database insertion failed: ' . $e->getMessage());
-            }
-        }
-
-        return redirect()->back()->with('error', 'Image upload failed!');
+                return redirect()->route('updatesettings');
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public function EditSettings(){
+        $setting=Setting::where('user_id',Auth::user()->id)->first();
+        return view('backend.editsettings',compact('setting'));
+    }
+
+
+    
+    public function UpdateSettings(Request $request)
+{
+    //for test request
+    // dd($request->all());
+    $setting = Setting::where('user_id', Auth::user()->id)->first();
+
+    if (!$setting) {
+        return redirect()->back()->with('error', 'Settings not found.');
+    }
+
+    $logo = $setting->logo; // Retain the current logo by default
+
+    if ($request->hasFile('logo')) {
+        // Handle the uploaded logo file
+        $image = $request->file('logo');
+        $logo = time() . '_' . $image->getClientOriginalName();
+        $image->move(public_path('upload'), $logo);
+
+        // Optional: Delete the old logo file if needed
+        if (file_exists(public_path('upload/' . $setting->logo)) && $setting->logo) {
+            unlink(public_path('upload/' . $setting->logo));
+        }
+    }
+
+    // Update the settings
+    $setting->update([
+        'agency_name' => $request->agency_name,
+        'logo' => $logo,
+        'address' => $request->address,
+        'phone' => $request->phone,
+        'email' => $request->email,
+        'description' => $request->description,
+        'updated_at' => now(), // Automatically updated by Eloquent
+    ]);
+
+    return redirect()->back();
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 

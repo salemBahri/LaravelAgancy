@@ -1,5 +1,5 @@
 <div class="text-fit-wrapper">
-    <h1 class="text-fit wow">{{ $fronts->pluck('agency_name')->implode(', ') }}</h1>
+    <h1 class="text-fit wow">{{$front->agency_name}}</h1>
     <div class="d-menu-1 wow" data-wow-delay=".3s">
         <ul>
             <li class="active"><a href="index.html">Home</a></li>

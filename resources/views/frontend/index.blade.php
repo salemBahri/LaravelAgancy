@@ -2,8 +2,8 @@
 <html lang="en">
 
 <head>
-    <title>Nathan — Personal Portfolio Website</title>
-    <link rel="icon" href="{{asset('frontend/assets/images/icon.webp')}}" type="image/gif" sizes="16x16">
+    <title>{{$front->agency_name}} — Agance </title>
+    <link rel="icon" href="{{$front->logo}}" type="image/gif" sizes="16x16">
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
     <meta content="width=device-width, initial-scale=1.0" name="viewport" >
     <meta content="Nathan — Personal Portfolio Website" name="description" >
@@ -62,7 +62,7 @@
                         </div>
 
                         <div class="col-lg-6">
-                            <img src="{{asset('frontend/assets/images/misc/1.webp')}}" class="w-100 wow fadeInUp" data-wow-delay=".6s" alt="">
+                            <img src="/upload/{{$front->logo}}" class="w-100 wow fadeInUp" data-wow-delay=".6s" alt="">
                         </div>
                     </div>
 

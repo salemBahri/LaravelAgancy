@@ -261,7 +261,7 @@
                         <div class="collapse" id="sidebarSettings">
                             <ul class="side-nav-second-level">
                                 <li class="side-nav-item">
-                                    <a class="side-nav-link" href="{{route('generalsettings')}}">General Settings</a>
+                                    <a class="side-nav-link" href="{{route('editsettings')}}">General Settings</a>
                                 </li>
                                 <li class="side-nav-item">
                                     <a class="side-nav-link" href="{{route('savesettings')}}">Contact</a>

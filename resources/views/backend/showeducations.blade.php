@@ -46,10 +46,37 @@
                                         
                                         <td>
                                             <div class="btn-group" role="group" aria-label="Basic example">
-                                                <button type="button" class="btn btn-primary"><i
+                                                <button type="submit" class="btn btn-primary"><i
                                                         icon-name="clipboard-edit"></i></button>
-                                                <button type="button" class="btn btn-danger"><i
-                                                        icon-name="trash-2"></i></button>
+
+
+                                                
+                                                    <button type="submit" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#fill-danger-modal-{{$edu->id}}">
+                                                        <i icon-name="trash-2"></i>
+                                                    </button>
+                                                
+
+
+
+
+                                                                                        <!-- Danger Filled Modal -->
+                                        <div id="fill-danger-modal-{{$edu->id}}" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="fill-danger-modalLabel" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content modal-filled bg-danger">
+                                                    <div class="modal-header">
+                                                        <h4 class="modal-title" id="fill-danger-modalLabel">Your Sure to delete !!</h4>
+                                                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
+                                                        <a href="{{ route('deleteeducation',$edu->id) }}"><button type="button" class="btn btn-outline-light">Delete</button></a>
+                                                    </div>
+                                                </div><!-- /.modal-content -->
+                                            </div><!-- /.modal-dialog -->
+                                        </div><!-- /.modal -->
+
+
+
                                             </div>
                                         </td>
                                     </tr>
@@ -63,6 +90,9 @@
                     </div>
                 </div>
             </div>
+
+            
+            
         </div> <!-- container -->
 
 
