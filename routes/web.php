@@ -35,8 +35,8 @@ Route::middleware(['auth'])->controller(BackendController::class)->group(functio
     Route::get('/add/education','AddEducation')->name('addeducation');
     Route::post('/save/education','SaveEducation')->name('saveEducation');
     Route::get('/educations','ShowEducation')->name('showeducation');
-
     Route::get('/delete/education/{id}','DeleteEducation')->name('deleteeducation');
+    Route::post('/update/education/{id}','UpdateEducation')->name('updateeducation');
 
 
     // Experiences
